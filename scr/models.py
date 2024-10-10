@@ -99,7 +99,6 @@ class U_Net(nn.Module):
 
         d5 = self.Up5(e5)
         d5 = torch.cat((e4, d5), dim=1)
-
         d5 = self.Up_conv5(d5)
 
         d4 = self.Up4(d5)
@@ -115,7 +114,4 @@ class U_Net(nn.Module):
         d2 = self.Up_conv2(d2)
 
         out = self.Conv(d2)
-
-        #d1 = self.active(out)
-
         return out
